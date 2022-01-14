@@ -1,0 +1,52 @@
+a {
+  text-decoration: none;
+  color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: white;
+}
+
+.card-img-top {
+  margin: 30px 0 30px 0;
+  height: 400px;
+  width: 400px;
+}
+
+.ui.menu {
+  margin: 0;
+}
+
+.card-text {
+  font-size: 20px;
+}
+
+body {
+  background-color: rgb(28, 28, 33);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 50px 0;
+  h1 {
+    color: white;
+  }
+}
+
+.card {
+  background-color: rgb(28, 28, 33);
+}
+
+.card-body {
+  h6,
+  p {
+    color: white;
+  }
+}
+
+.c-shop-detail {
+  margin: 50px 20%;
+}
