@@ -2,21 +2,26 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectedProduct,
-} from "../redux/actions/productActions";
+import { selectedProduct, setLoading } from "../redux/actions/productActions";
+import LoadingContainer from "./LoadingContainer";
 
 const ProcutDetail = () => {
   const { productId } = useParams();
   const product = useSelector((state) => state.product);
+  const loading = useSelector((state) => state.loading.loading);
   const dispatch = useDispatch();
   const { image, price, category, description, title } = product;
 
   const fetchProductDetail = async () => {
+    dispatch(setLoading(true));
+
     const response = await axios
       .get(`https://fakestoreapi.com/products/${productId}`)
       .catch((err) => {
         console.log("Err", err);
+      })
+      .finally(() => {
+        dispatch(setLoading(false));
       });
     dispatch(selectedProduct(response.data));
   };
@@ -29,8 +34,8 @@ const ProcutDetail = () => {
 
   return (
     <div className="c-shop-detail">
-      {Object.keys(product).length === 0 ? (
-        <div>...Loading</div>
+      {loading && loading ? (
+        <LoadingContainer />
       ) : (
         <div className="row d-flex align-items-center">
           <div className="col-6 card">

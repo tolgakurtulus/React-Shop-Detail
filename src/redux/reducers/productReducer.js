@@ -1,12 +1,15 @@
 import { ActionTypes } from "../contants/action-types";
 
-const initialState = {
+const INITIAL_STATE = {
   products: [],
 };
 
-let loadingVal = false;
+const INITIAL_STATE_LOADING = {
+  loading: false,
+};
 
-export const productReducer = (state = initialState, { type, payload }) => {
+
+export const productReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
       return {
@@ -18,12 +21,12 @@ export const productReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export const loadingReducer = (state = loadingVal, { type, payload }) => {
+export const loadingReducer = (state = INITIAL_STATE_LOADING, { type, payload }) => {
   switch (type) {
     case ActionTypes.LOADING_PRODUCT:
       return {
         ...state,
-        ...payload,
+        loading: payload,
       };
     default:
       return state;

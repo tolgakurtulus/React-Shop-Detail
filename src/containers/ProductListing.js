@@ -1,43 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setLoading } from "../redux/actions/productActions";
 import ProcutComponent from "./ProductComponent";
+import LoadingContainer from "./LoadingContainer";
+
 
 const ProcutListing = () => {
   const dispatch = useDispatch();
-  const productstest = useSelector((state) => state);
-
-
+  const loading = useSelector((state) => state.loading.loading);
   const fetchProducts = async () => {
     dispatch(setLoading(true));
-
-    await axios
+    const response = await axios
       .get("https://fakestoreapi.com/products")
-      .then(function (response) {
-        dispatch(setProducts(response.data));
-        // dispatch(setLoading(false));
-        console.log("1");
-      })
       .catch((err) => {
-        console.log(err);
+        console.log("Err", err);
       })
       .finally(() => {
-        console.log("2");
-        // dispatch(setLoading(false));
-        console.log("productstest", productstest);
+        dispatch(setLoading(false));
       });
+
+    dispatch(setProducts(response.data));
   };
 
   useEffect(() => {
+    console.log("test1")
     fetchProducts();
   }, []);
 
   return (
-    <div className="container c-product-component">
-      <div className="row">
-        <ProcutComponent />
-      </div>
+    <div className="container c-product-component d-flex align-items-center justify-content-center flex-wrap">
+        {loading && loading
+          ? (
+            <LoadingContainer />
+          ) : (
+              <ProcutComponent />
+          )
+        }
     </div>
   );
 };
