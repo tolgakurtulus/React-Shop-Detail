@@ -8,7 +8,6 @@ const INITIAL_STATE_LOADING = {
   loading: false,
 };
 
-
 export const productReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
