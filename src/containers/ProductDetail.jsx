@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedProduct, setLoading } from "../redux/actions/productActions";
-import LoadingContainer from "./LoadingContainer";
+import LoadingContainer from "./LoadingContainer.jsx";
 
 const ProcutDetail = () => {
   const { productId } = useParams();
@@ -29,7 +29,7 @@ const ProcutDetail = () => {
   useEffect(() => {
     if (productId && productId !== "") {
       fetchProductDetail();
-    }
+    }// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   return (

@@ -1,8 +1,8 @@
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
-import Header from "./containers/Header";
-import ProductListing from "./containers/ProductListing";
-import ProductDetail from "./containers/ProductDetail";
+import Header from "./containers/Header.jsx";
+import ProductListing from "./containers/ProductListing.jsx";
+import ProductDetail from "./containers/ProductDetail.jsx";
 import React from "react";
 
 function App() {
