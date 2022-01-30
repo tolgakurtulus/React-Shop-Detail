@@ -24,7 +24,6 @@ const ProcutListing = () => {
   };
 
   useEffect(() => {
-    console.log("test1")
     fetchProducts();// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
