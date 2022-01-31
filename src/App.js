@@ -10,7 +10,7 @@ function App() {
     <div className="c-app">
       <Header />
       <Routes>
-          <Route path="/" exact element={<ProductListing />} />
+          <Route path="/React-Shop-Detail" exact element={<ProductListing />} />
           <Route path="/product/:productId" exact element={<ProductDetail />} />
       </Routes>
     </div>
