@@ -20,19 +20,6 @@ export const productReducer = (state = INITIAL_STATE, { type, payload }) => {
   }
 };
 
-export const loadingReducer = (state = INITIAL_STATE_LOADING, { type, payload }) => {
-  switch (type) {
-    case ActionTypes.LOADING_PRODUCT:
-      return {
-        ...state,
-        loading: payload,
-      };
-    default:
-      return state;
-  }
-};
-
-
 export const selectedProductReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
@@ -42,6 +29,21 @@ export const selectedProductReducer = (state = {}, { type, payload }) => {
       };
     case ActionTypes.REMOVE_SELECTED_PRODUCT:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const loadingReducer = (
+  state = INITIAL_STATE_LOADING,
+  { type, payload }
+) => {
+  switch (type) {
+    case ActionTypes.LOADING_PRODUCT:
+      return {
+        ...state,
+        loading: payload,
+      };
     default:
       return state;
   }

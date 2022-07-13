@@ -5,7 +5,6 @@ import { setProducts, setLoading } from "../redux/actions/productActions";
 import ProcutComponent from "./ProductComponent";
 import LoadingContainer from "./LoadingContainer";
 
-
 const ProcutListing = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading.loading);
